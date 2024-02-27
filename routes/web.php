@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MessageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +18,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::post('contact', function () {
-    return view('contact');
-});
+Route::view('/contact' , 'contact')->name('contact');
+Route::post('/contact', [MessageController::class, 'index']);
